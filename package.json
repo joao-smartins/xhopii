@@ -1,0 +1,12 @@
+{
+  "name": "xhopii",
+  "version": "1.0.0",
+  "description": "site xhoppi node express",
+  "license": "MIT",
+  "author": "joao_martins e caio_aranda",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
