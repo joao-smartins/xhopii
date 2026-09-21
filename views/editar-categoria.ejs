@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="icon" href="/img/logo.png" type="image/png">
-    <title>Xhopii - Cadastro Cliente</title>
+    <title>Xhopii - Editar Categoria</title>
 </head>
 <body>
 
@@ -14,7 +14,7 @@
             <h1>Xhopii</h1>
         </section>
         <section id="cabecalho-logout">
-            <a href="/login">Sair</a>
+            <a href="/logout">Sair</a>
         </section>
     </header>
 
@@ -24,26 +24,21 @@
             <li><a href="/clientes/cadastrar">Cadastro Cliente</a></li>
             <li><a href="/funcionario/cadastrar">Cadastro Funcionário</a></li>
             <li><a href="/produto/cadastrar">Cadastro Produto</a></li>
+            <li><a href="/categorias/cadastrar">Cadastro Categoria</a></li>
             <li><a href="/clientes">Ver Clientes</a></li>
-            <li><a href="#">Ver Funcionários</a></li>
-            <li><a href="#">Ver Produtos</a></li>
+            <li><a href="/funcionarios">Ver Funcionários</a></li>
+            <li><a href="/produtos">Ver Produtos</a></li>
+            <li><a href="/categorias">Ver Categorias</a></li>
         </ul>
     </nav>
 
     <section class="conteudo-cadastro">
         <section class="conteudo-formulario-cadastro">
-            <form method="POST" action="/clientes">
-                <label>Cadastrar Cliente</label>
-                <input type="text" placeholder="Nome" name="nome">
-                <input type="text" placeholder="Sobrenome" name="sobrenome">
-                <input type="text" placeholder="CPF" name="cpf">
-                <input type="date" placeholder="Data Nascimento" name="dataNascimento">
-                <input type="text" placeholder="Telefone" name="telefone">
-                <input type="text" placeholder="Email" name="email">
-                <input type="password" placeholder="Senha" name="senha">
-                <label id="lbl-arquivo" for="files">Selecionar foto de perfil:</label>
-                <input type="file" name="inputFoto">
-                <input id="botao" type="submit" value="Cadastrar">
+            <form method="POST" action="/categorias/editar/<%= categoria.id %>">
+                <label>Editar Categoria</label>
+                <input type="text" placeholder="Nome da Categoria" name="nomeCategoria" value="<%= categoria.nomeCategoria %>" required>
+                <input type="text" placeholder="Descrição" name="descricaoCategoria" value="<%= categoria.descricaoCategoria %>" required>
+                <input id="botao" type="submit" value="Atualizar Categoria">
             </form>
         </section>
     </section>
@@ -102,6 +97,6 @@
         <hr>
         <p>© 2025 Xhopii. Todos os direitos acadêmicos reservados</p>
     </footer>
-    
+
 </body>
 </html>
