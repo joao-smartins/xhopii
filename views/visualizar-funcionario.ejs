@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="icon" href="/img/logo.png" type="image/png">
-    <title>Xhopii - Ver Clientes</title>
+    <title>Xhopii - Ver Funcionários</title>
 </head>
 <body>
 
@@ -34,21 +34,20 @@
 
     <section class="conteudo-visualizar">
         <section class="conteudo-visualizar-box">
-            <h1>Clientes</h1>
-            <% clientes.forEach(cliente => { %>
+            <h1>Funcionários</h1>
+            
+            <% funcionarios.forEach(funcionario => { %>
                 <section class="conteudo-bloco">
-                    <h2><%= cliente.nome %> <%= cliente.sobrenome %></h2>
-                    <p>CPF: <%= cliente.cpf %></p>
-                    <p>Data Nascimento: <%= cliente.dataNascimento %></p>
-                    <p>Telefone: <%= cliente.telefone %></p>
-                    <p>E-mail: <%= cliente.email %></p>
-                    
-                    <section class="botoes-acao" style="margin-top: 10px;">
-                        <a href="/clientes/editar/<%= cliente.id %>" style="background-color: #ff9800; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Editar</a>
-                        <a href="/clientes/deletar/<%= cliente.id %>" style="background-color: #f44336; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Excluir</a>
-                    </section>
+                    <h2><%= funcionario.inputNomeFunc %> <%= funcionario.inputSobrenomeFunc %></h2>
+                    <p>CPF: <%= funcionario.inputCPFFunc %></p>
+                    <p>Data Nascimento: <%= funcionario.inputDataNascFunc %></p>
+                    <p>Telefone: <%= funcionario.inputTelefoneFunc %></p>
+                    <p>Cargo: <%= funcionario.inputCargoFunc %></p>
+                    <p>Salário: R$ <%= funcionario.inputSalarioFunc %></p>
+                    <p>E-mail: <%= funcionario.inputEmailFunc %></p>
                 </section>
             <% }); %>
+
         </section>
     </section>
 

@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="icon" href="/img/logo.png" type="image/png">
-    <title>Xhopii - Ver Clientes</title>
+    <title>Xhopii - Recuperar Senhar</title>
 </head>
 <body>
-
     <header>
         <section id="cabecalho-logo">
             <img src="/img/logo.png">
@@ -32,23 +31,14 @@
         </ul>
     </nav>
 
-    <section class="conteudo-visualizar">
-        <section class="conteudo-visualizar-box">
-            <h1>Clientes</h1>
-            <% clientes.forEach(cliente => { %>
-                <section class="conteudo-bloco">
-                    <h2><%= cliente.nome %> <%= cliente.sobrenome %></h2>
-                    <p>CPF: <%= cliente.cpf %></p>
-                    <p>Data Nascimento: <%= cliente.dataNascimento %></p>
-                    <p>Telefone: <%= cliente.telefone %></p>
-                    <p>E-mail: <%= cliente.email %></p>
-                    
-                    <section class="botoes-acao" style="margin-top: 10px;">
-                        <a href="/clientes/editar/<%= cliente.id %>" style="background-color: #ff9800; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Editar</a>
-                        <a href="/clientes/deletar/<%= cliente.id %>" style="background-color: #f44336; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Excluir</a>
-                    </section>
-                </section>
-            <% }); %>
+    <section class="conteudo-redefinir-senha">
+        <section class="form-redefinir-senha">
+            <a href="/login"><img src="/img/icon-back.png"></a>
+            <form class="form-redefinir" method="POST" action="home">
+                <label id="label-log">Redefinir senha</label>
+                <input id="input-log" type="text" placeholder="Email" name="inputEmailLog">
+                <input id="botao-log" type="submit" value="Enviar">
+            </form>
         </section>
     </section>
 

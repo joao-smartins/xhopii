@@ -4,28 +4,48 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="icon" href="/img/logo.png" type="image/png">
-    <title>Xhopii - Recuperar Senhar</title>
+    <title>Xhopii - Ver Categorias</title>
 </head>
 <body>
-    <header class="cabecalho-login">
-        <section id="cabecalho-login-logo">
+
+    <header>
+        <section id="cabecalho-logo">
             <img src="/img/logo.png">
             <h1>Xhopii</h1>
-            <p>Redefinir senha</p>
         </section>
-        <section id="cabecalho-login-ajuda">
-            <p>Precisa de ajuda?</p>
+        <section id="cabecalho-logout">
+            <a href="/logout">Sair</a>
         </section>
     </header>
 
-    <section class="conteudo-redefinir-senha">
-        <section class="form-redefinir-senha">
-            <a href="/login"><img src="/img/icon-back.png"></a>
-            <form class="form-redefinir" method="POST" action="home">
-                <label id="label-log">Redefinir senha</label>
-                <input id="input-log" type="text" placeholder="Email" name="inputEmailLog">
-                <input id="botao-log" type="submit" value="Enviar">
-            </form>
+    <nav class="menu-horizontal">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/clientes/cadastrar">Cadastro Cliente</a></li>
+            <li><a href="/funcionario/cadastrar">Cadastro Funcionário</a></li>
+            <li><a href="/produto/cadastrar">Cadastro Produto</a></li>
+            <li><a href="/categorias/cadastrar">Cadastro Categoria</a></li>
+            <li><a href="/clientes">Ver Clientes</a></li>
+            <li><a href="/funcionarios">Ver Funcionários</a></li>
+            <li><a href="/produtos">Ver Produtos</a></li>
+            <li><a href="/categorias">Ver Categorias</a></li>
+        </ul>
+    </nav>
+
+    <section class="conteudo-visualizar">
+        <section class="conteudo-visualizar-box">
+            <h1>Categorias</h1>
+            <% categorias.forEach(categoria => { %>
+                <section class="conteudo-bloco">
+                    <h2><%= categoria.nomeCategoria %></h2>
+                    <p>Descrição: <%= categoria.descricaoCategoria %></p>
+                    
+                    <section class="botoes-acao" style="margin-top: 10px;">
+                        <a href="/categorias/editar/<%= categoria.id %>" style="background-color: #ff9800; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Editar</a>
+                        <a href="/categorias/deletar/<%= categoria.id %>" style="background-color: #f44336; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Excluir</a>
+                    </section>
+                </section>
+            <% }); %>
         </section>
     </section>
 

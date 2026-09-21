@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="icon" href="/img/logo.png" type="image/png">
-    <title>Xhopii - Cadastro Funcionario</title>
+    <title>Xhopii - Editar Funcionário</title>
 </head>
 <body>
 
@@ -14,7 +14,7 @@
             <h1>Xhopii</h1>
         </section>
         <section id="cabecalho-logout">
-            <a href="/login">Sair</a>
+            <a href="/logout">Sair</a>
         </section>
     </header>
 
@@ -24,28 +24,32 @@
             <li><a href="/clientes/cadastrar">Cadastro Cliente</a></li>
             <li><a href="/funcionario/cadastrar">Cadastro Funcionário</a></li>
             <li><a href="/produto/cadastrar">Cadastro Produto</a></li>
+            <li><a href="/categorias/cadastrar">Cadastro Categoria</a></li>
             <li><a href="/clientes">Ver Clientes</a></li>
-            <li><a href="#">Ver Funcionários</a></li>
-            <li><a href="#">Ver Produtos</a></li>
+            <li><a href="/funcionarios">Ver Funcionários</a></li>
+            <li><a href="/produtos">Ver Produtos</a></li>
+            <li><a href="/categorias">Ver Categorias</a></li>
         </ul>
     </nav>
 
     <section class="conteudo-cadastro">
         <section class="conteudo-formulario-cadastro">
-            <form method="POST" action="">
-                <label>Cadastrar Funcionário</label>
-                <input type="text" placeholder="Nome" name="inputNomeFunc">
-                <input type="text" placeholder="Sobrenome" name="inputSobrenomeFunc">
-                <input type="text" placeholder="CPF" name="inputCPFFunc">
-                <input type="date" placeholder="Data Nascimento" name="inputDataNascFunc">
-                <input type="text" placeholder="Telefone" name="inputTelefoneFunc">
-                <input type="text" placeholder="Cargo / Função" name="inputCargoFunc">
-                <input type="text" placeholder="Salário" name="inputSalarioFunc">
-                <input type="text" placeholder="Email" name="inputEmailFunc">
-                <input type="password" placeholder="Senha" name="inputSenha">
+            <form method="POST" action="/funcionarios/editar/<%= funcionario.id %>">
+                <label>Editar Funcionário</label>
+                <input type="text" placeholder="Nome" name="inputNomeFunc" value="<%= funcionario.inputNomeFunc %>">
+                <input type="text" placeholder="Sobrenome" name="inputSobrenomeFunc" value="<%= funcionario.inputSobrenomeFunc %>">
+                <input type="text" placeholder="CPF" name="inputCPFFunc" value="<%= funcionario.inputCPFFunc %>">
+                <input type="date" placeholder="Data Nascimento" name="inputDataNascFunc" value="<%= funcionario.inputDataNascFunc %>">
+                <input type="text" placeholder="Telefone" name="inputTelefoneFunc" value="<%= funcionario.inputTelefoneFunc %>">
+                <input type="text" placeholder="Cargo / Função" name="inputCargoFunc" value="<%= funcionario.inputCargoFunc %>">
+                <input type="text" placeholder="Salário" name="inputSalarioFunc" value="<%= funcionario.inputSalarioFunc %>">
+                <input type="text" placeholder="Email" name="inputEmailFunc" value="<%= funcionario.inputEmailFunc %>">
+                <input type="password" placeholder="Senha" name="inputSenha" value="<%= funcionario.inputSenha %>">
+                
                 <label id="lbl-arquivo" for="files">Selecionar foto de perfil:</label>
                 <input type="file" name="inputFoto">
-                <input id="botao" type="submit" value="Cadastrar">
+                
+                <input id="botao" type="submit" value="Atualizar Funcionário">
             </form>
         </section>
     </section>

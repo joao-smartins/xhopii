@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="icon" href="/img/logo.png" type="image/png">
-    <title>Xhopii - Ver Clientes</title>
+    <title>Xhopii - Editar Cliente</title>
 </head>
 <body>
 
@@ -32,23 +32,23 @@
         </ul>
     </nav>
 
-    <section class="conteudo-visualizar">
-        <section class="conteudo-visualizar-box">
-            <h1>Clientes</h1>
-            <% clientes.forEach(cliente => { %>
-                <section class="conteudo-bloco">
-                    <h2><%= cliente.nome %> <%= cliente.sobrenome %></h2>
-                    <p>CPF: <%= cliente.cpf %></p>
-                    <p>Data Nascimento: <%= cliente.dataNascimento %></p>
-                    <p>Telefone: <%= cliente.telefone %></p>
-                    <p>E-mail: <%= cliente.email %></p>
-                    
-                    <section class="botoes-acao" style="margin-top: 10px;">
-                        <a href="/clientes/editar/<%= cliente.id %>" style="background-color: #ff9800; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Editar</a>
-                        <a href="/clientes/deletar/<%= cliente.id %>" style="background-color: #f44336; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Excluir</a>
-                    </section>
-                </section>
-            <% }); %>
+    <section class="conteudo-cadastro">
+        <section class="conteudo-formulario-cadastro">
+            <form method="POST" action="/clientes/editar/<%= cliente.id %>">
+                <label>Editar Cliente</label>
+                <input type="text" placeholder="Nome" name="nome" value="<%= cliente.nome %>">
+                <input type="text" placeholder="Sobrenome" name="sobrenome" value="<%= cliente.sobrenome %>">
+                <input type="text" placeholder="CPF" name="cpf" value="<%= cliente.cpf %>">
+                <input type="date" placeholder="Data Nascimento" name="dataNascimento" value="<%= cliente.dataNascimento %>">
+                <input type="text" placeholder="Telefone" name="telefone" value="<%= cliente.telefone %>">
+                <input type="text" placeholder="Email" name="email" value="<%= cliente.email %>">
+                <input type="password" placeholder="Senha" name="senha" value="<%= cliente.senha %>">
+                
+                <label id="lbl-arquivo" for="files">Selecionar foto de perfil:</label>
+                <input type="file" name="inputFoto">
+                
+                <input id="botao" type="submit" value="Atualizar Cliente">
+            </form>
         </section>
     </section>
 

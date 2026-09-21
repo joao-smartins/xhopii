@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="icon" href="/img/logo.png" type="image/png">
-    <title>Xhopii - Ver Clientes</title>
+    <title>Xhopii - Login</title>
 </head>
 <body>
-
+    
     <header>
         <section id="cabecalho-logo">
             <img src="/img/logo.png">
@@ -18,37 +18,31 @@
         </section>
     </header>
 
-    <nav class="menu-horizontal">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/clientes/cadastrar">Cadastro Cliente</a></li>
-            <li><a href="/funcionario/cadastrar">Cadastro Funcionário</a></li>
-            <li><a href="/produto/cadastrar">Cadastro Produto</a></li>
-            <li><a href="/categorias/cadastrar">Cadastro Categoria</a></li>
-            <li><a href="/clientes">Ver Clientes</a></li>
-            <li><a href="/funcionarios">Ver Funcionários</a></li>
-            <li><a href="/produtos">Ver Produtos</a></li>
-            <li><a href="/categorias">Ver Categorias</a></li>
-        </ul>
-    </nav>
+    
 
-    <section class="conteudo-visualizar">
-        <section class="conteudo-visualizar-box">
-            <h1>Clientes</h1>
-            <% clientes.forEach(cliente => { %>
-                <section class="conteudo-bloco">
-                    <h2><%= cliente.nome %> <%= cliente.sobrenome %></h2>
-                    <p>CPF: <%= cliente.cpf %></p>
-                    <p>Data Nascimento: <%= cliente.dataNascimento %></p>
-                    <p>Telefone: <%= cliente.telefone %></p>
-                    <p>E-mail: <%= cliente.email %></p>
-                    
-                    <section class="botoes-acao" style="margin-top: 10px;">
-                        <a href="/clientes/editar/<%= cliente.id %>" style="background-color: #ff9800; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Editar</a>
-                        <a href="/clientes/deletar/<%= cliente.id %>" style="background-color: #f44336; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Excluir</a>
-                    </section>
-                </section>
-            <% }); %>
+    <section class="conteudo-login">
+        <section class="conteudo-login-info">
+            <form class="form-login" method="POST" action="/login">
+                <label id="label-log">Login</label>
+                <input id="input-log" type="text" placeholder="Email" name="inputEmailLog">
+                <input id="input-log" type="password" placeholder="Senha" name="inputSenhaLog">
+                <input id="botao-log" type="submit" value="ENTRE">
+            </form>
+            <section class="conteudo-login-recuperacao">
+                <a href="recuperar-senha">Esqueci minha senha</a>
+                <a href="#">Fazer login com SMS</a>
+            </section>
+            <section class="conteudo-login-alegoria">
+                <hr>
+                <p>Ou</p>
+                <hr>
+            </section>
+            <section class="conteudo-login-sociais">
+                <button><img src="/img/logo-facebook-cicle.png">Facebook</button>
+                <button><img src="/img/logo-google.png">Google</button>
+                <button><img src="/img/logo-apple.png">Apple</button>
+            </section>
+            <p>Novo na Xhopii? <a href="/clientes/cadastrar">Cadastrar</a></p>
         </section>
     </section>
 
