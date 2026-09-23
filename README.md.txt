@@ -2,8 +2,8 @@
 
 ## Integrantes
 
-- **Nome:**  Inserir nome completo
-  **RA:** Inserir o RA
+- **Nome: João Vitor Santos Martins**  
+  **RA: 262310244** 
 
-- **Nome:** Inserir nome completo
-  **RA:** Inserir o RA
+- **Nome: Caio Henrique Aranda Sumida:** 
+  **RA: 262318911** 

@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 
-//connectDB();
+connectDB();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(rootDir, 'views'));

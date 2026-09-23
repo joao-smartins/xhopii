@@ -5,6 +5,12 @@ import ClienteController from '../controllers/ClienteController.js';
 import ProdutoController from '../controllers/ProdutoController.js';
 import FuncionarioController from '../controllers/FuncionarioController.js';
 import CategoriaController from '../controllers/CategoriaController.js';
+
+import Cliente from '../models/Cliente.js';
+import Funcionario from '../models/Funcionario.js';
+import Produto from '../models/Produto.js';
+import Categoria from '../models/Categoria.js';
+
 const router = express.Router();
 
 // ROTAS DE LOGIN E LOGOUT
@@ -14,7 +20,27 @@ router.get('/logout', LoginController.realizarLogout);
 
 router.use(verificarToken); 
 
-router.get('/', (req, res) => res.render('home'));
+// Rota Home 
+router.get('/', async (req, res) => {
+    try {
+        // Conta quantos documentos existem em cada coleção no MongoDB
+        const totalClientes = await Cliente.countDocuments();
+        const totalFuncionarios = await Funcionario.countDocuments();
+        const totalProdutos = await Produto.countDocuments();
+        const totalCategorias = await Categoria.countDocuments();
+
+        // Envia esses números para a página home.ejs
+        res.render('home', {
+            totalClientes,
+            totalFuncionarios,
+            totalProdutos,
+            totalCategorias
+        });
+    } catch (error) {
+        console.error("Erro ao carregar dashboard:", error);
+        res.render('home', { totalClientes: 0, totalFuncionarios: 0, totalProdutos: 0, totalCategorias: 0 });
+    }
+});
 
 // ROTAS DE CLIENTE
 router.get('/clientes', ClienteController.listarClientes);

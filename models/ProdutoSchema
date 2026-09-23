@@ -1,0 +1,11 @@
+import mongoose from 'mongoose';
+
+const produtoSchema = new mongoose.Schema({
+    inputNomeProd: String,
+    inputFabricanteProd: String,
+    inputDescricaoProd: String,
+    inputValorProd: String,
+    inputQtdProd: String
+});
+
+export default produtoSchema;

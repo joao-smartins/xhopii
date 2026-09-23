@@ -34,7 +34,7 @@
 
     <section class="conteudo-cadastro">
         <section class="conteudo-formulario-cadastro">
-            <form method="POST" action="/clientes/editar/<%= cliente.id %>">
+           <form method="POST" action="/clientes/editar/<%= cliente._id %>">
                 <label>Editar Cliente</label>
                 <input type="text" placeholder="Nome" name="nome" value="<%= cliente.nome %>">
                 <input type="text" placeholder="Sobrenome" name="sobrenome" value="<%= cliente.sobrenome %>">

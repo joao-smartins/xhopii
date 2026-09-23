@@ -1,54 +1,26 @@
-let clientesSalvos = []; 
+import Cliente from '../models/Cliente.js';
 
 class ClienteController {
-    static listarClientes(req, res) {
-        res.render('visualizar-cliente', { clientes: clientesSalvos }); 
+    static async listarClientes(req, res) {
+        const clientes = await Cliente.find();
+        res.render('visualizar-cliente', { clientes });
     }
-
-    static renderizarCadastro(req, res) {
-        res.render('cadastrar-cliente'); 
-    }
-
-    static cadastrarCliente(req, res) {
-        const { nome, sobrenome, cpf, dataNascimento, telefone, email, senha } = req.body;
-        
-        const novoCliente = { 
-            id: Date.now().toString(), 
-            nome, sobrenome, cpf, dataNascimento, telefone, email, senha 
-        };
-        clientesSalvos.push(novoCliente);
-        
-        res.redirect('/clientes'); 
-    }
-
-
-
-    static deletarCliente(req, res) {
-        const idParaDeletar = req.params.id;
-        clientesSalvos = clientesSalvos.filter(cliente => cliente.id !== idParaDeletar);
+    static renderizarCadastro(req, res) { res.render('cadastrar-cliente'); }
+    static async cadastrarCliente(req, res) {
+        await new Cliente(req.body).save();
         res.redirect('/clientes');
     }
-
-    static renderizarEdicao(req, res) {
-        const id = req.params.id;
-        const cliente = clientesSalvos.find(c => c.id === id);
-        
-        if (!cliente) return res.redirect('/clientes'); 
-        
+    static async deletarCliente(req, res) {
+        await Cliente.findByIdAndDelete(req.params.id);
+        res.redirect('/clientes');
+    }
+    static async renderizarEdicao(req, res) {
+        const cliente = await Cliente.findById(req.params.id);
         res.render('editar-cliente', { cliente });
     }
-
-    static atualizarCliente(req, res) {
-        const id = req.params.id;
-        const { nome, sobrenome, cpf, dataNascimento, telefone, email, senha } = req.body;
-        
-        const index = clientesSalvos.findIndex(c => c.id === id);
-        if (index !== -1) {
-            clientesSalvos[index] = { id, nome, sobrenome, cpf, dataNascimento, telefone, email, senha };
-        }
-        
+    static async atualizarCliente(req, res) {
+        await Cliente.findByIdAndUpdate(req.params.id, req.body);
         res.redirect('/clientes');
     }
 }
-
 export default ClienteController;

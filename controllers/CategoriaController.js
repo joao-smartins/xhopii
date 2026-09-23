@@ -1,39 +1,26 @@
-let categoriasSalvas = [];
+import Categoria from '../models/Categoria.js';
 
 class CategoriaController {
-    static listarCategorias(req, res) {
-        res.render('ver-categoria', { categorias: categoriasSalvas }); 
+    static async listarCategorias(req, res) {
+        const categorias = await Categoria.find();
+        res.render('ver-categoria', { categorias });
     }
-
-    static renderizarCadastro(req, res) {
-        res.render('cadastrar-categoria'); 
-    }
-
-    static cadastrarCategoria(req, res) {
-        const novaCategoria = { id: Date.now().toString(), ...req.body };
-        categoriasSalvas.push(novaCategoria);
-        res.redirect('/categorias'); 
-    }
-
-    static deletarCategoria(req, res) {
-        categoriasSalvas = categoriasSalvas.filter(c => c.id !== req.params.id);
+    static renderizarCadastro(req, res) { res.render('cadastrar-categoria'); }
+    static async cadastrarCategoria(req, res) {
+        await new Categoria(req.body).save();
         res.redirect('/categorias');
     }
-
-    static renderizarEdicao(req, res) {
-        const categoria = categoriasSalvas.find(c => c.id === req.params.id);
-        if (!categoria) return res.redirect('/categorias');
+    static async deletarCategoria(req, res) {
+        await Categoria.findByIdAndDelete(req.params.id);
+        res.redirect('/categorias');
+    }
+    static async renderizarEdicao(req, res) {
+        const categoria = await Categoria.findById(req.params.id);
         res.render('editar-categoria', { categoria });
     }
-
-    static atualizarCategoria(req, res) {
-        const id = req.params.id;
-        const index = categoriasSalvas.findIndex(c => c.id === id);
-        if (index !== -1) {
-            categoriasSalvas[index] = { id, ...req.body };
-        }
+    static async atualizarCategoria(req, res) {
+        await Categoria.findByIdAndUpdate(req.params.id, req.body);
         res.redirect('/categorias');
     }
 }
-
 export default CategoriaController;
