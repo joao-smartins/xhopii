@@ -34,8 +34,7 @@
 
     <section class="conteudo-cadastro">
         <section class="conteudo-formulario-cadastro">
-            <form method="POST" action="/produtos/editar/<%= produto.id %>">
-                <label>Editar Produto</label>
+                <form method="POST" action="/produtos/editar/<%= produto._id %>">                <label>Editar Produto</label>
                 <input type="text" placeholder="Nome" name="inputNomeProd" value="<%= produto.nome %>">
                 <input type="text" placeholder="Fabricante" name="inputFabricanteProd" value="<%= produto.fabricante %>">
                 <input type="text" placeholder="Descrição" name="inputDescricaoProd" value="<%= produto.descricao %>">

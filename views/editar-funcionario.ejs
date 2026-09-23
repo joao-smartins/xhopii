@@ -34,7 +34,7 @@
 
     <section class="conteudo-cadastro">
         <section class="conteudo-formulario-cadastro">
-            <form method="POST" action="/funcionarios/editar/<%= funcionario.id %>">
+            <form method="POST" action="/funcionarios/editar/<%= funcionario._id %>">                
                 <label>Editar Funcionário</label>
                 <input type="text" placeholder="Nome" name="inputNomeFunc" value="<%= funcionario.inputNomeFunc %>">
                 <input type="text" placeholder="Sobrenome" name="inputSobrenomeFunc" value="<%= funcionario.inputSobrenomeFunc %>">

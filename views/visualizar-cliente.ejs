@@ -44,8 +44,8 @@
                     <p>E-mail: <%= cliente.email %></p>
                     
                     <section class="botoes-acao" style="margin-top: 10px;">
-                        <a href="/clientes/editar/<%= cliente.id %>" style="background-color: #ff9800; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Editar</a>
-                        <a href="/clientes/deletar/<%= cliente.id %>" style="background-color: #f44336; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Excluir</a>
+                        <a href="/clientes/editar/<%= cliente._id %>" style="background-color: #ff9800; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Editar</a>
+                        <a href="/clientes/deletar/<%= cliente._id %>" style="background-color: #f44336; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Excluir</a>
                     </section>
                 </section>
             <% }); %>

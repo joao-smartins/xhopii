@@ -38,7 +38,7 @@
                 <h1>Produtos</h1>
             </section>
             
-            <section class="conteudo-ver-descobertas-produto">
+           <section class="conteudo-ver-descobertas-produto">
                 <% produtos.forEach(produto => { %>
                     <a href="#" class="ver-produto-item-grid">
                         <section class="ver-produto-detalhes">
@@ -58,6 +58,11 @@
                             <section class="ver-produto-item-info">
                                 <p id="valor">R$ <%= produto.valor %></p>
                                 <p id="disponiveis"><%= produto.quantidade %> disponíveis</p>
+                            </section>
+
+                            <section class="botoes-acao" style="margin-top: 10px; display: flex; justify-content: space-around;">
+                                <a href="/produtos/editar/<%= produto._id %>" style="background-color: #ff9800; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px; z-index: 10; position: relative;">Editar</a>
+                                <a href="/produtos/deletar/<%= produto._id %>" style="background-color: #f44336; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px; z-index: 10; position: relative;">Excluir</a>
                             </section>
                         </section>
                     </a>

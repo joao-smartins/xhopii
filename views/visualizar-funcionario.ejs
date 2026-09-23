@@ -35,7 +35,6 @@
     <section class="conteudo-visualizar">
         <section class="conteudo-visualizar-box">
             <h1>Funcionários</h1>
-            
             <% funcionarios.forEach(funcionario => { %>
                 <section class="conteudo-bloco">
                     <h2><%= funcionario.inputNomeFunc %> <%= funcionario.inputSobrenomeFunc %></h2>
@@ -45,9 +44,13 @@
                     <p>Cargo: <%= funcionario.inputCargoFunc %></p>
                     <p>Salário: R$ <%= funcionario.inputSalarioFunc %></p>
                     <p>E-mail: <%= funcionario.inputEmailFunc %></p>
+                    
+                    <section class="botoes-acao" style="margin-top: 10px;">
+                        <a href="/funcionarios/editar/<%= funcionario._id %>" style="background-color: #ff9800; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Editar</a>
+                        <a href="/funcionarios/deletar/<%= funcionario._id %>" style="background-color: #f44336; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">Excluir</a>
+                    </section>
                 </section>
             <% }); %>
-
         </section>
     </section>
 
